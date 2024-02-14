@@ -14,12 +14,12 @@ public class BabyService {
 	@Autowired
 	BabyDAO dao;
 	
-	// 아기 정보 입력
+	// 아기 추가
 	public int insertBabyInfo(BabyDTO dto) {
 		return dao.insertBabyInfo(dto);
 	}
 	
-	// 아기 리스트 가져오기
+	// 아기 리스트
 	public List<BabyDTO> babyList(String connection_id){
 		return dao.babyList(connection_id);
 	}

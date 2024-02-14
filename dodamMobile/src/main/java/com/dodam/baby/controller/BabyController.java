@@ -24,7 +24,7 @@ public class BabyController {
 	@Autowired
 	BabyService service;
 
-	// 아기 정보 입력
+	// 아기 추가
 	@PostMapping("/insertBabyInfo")
 	public ResponseEntity<String> insertBabyInfo(@RequestBody RequestDTO rdto){
 		BabyDTO bdto = rdto.getBdto();
@@ -35,14 +35,14 @@ public class BabyController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	// 아기 리스트 가져오기
+	// 아기 리스트
 	@GetMapping("/babyList/{connection_id}")
 	public ResponseEntity<List<BabyDTO>> babyList(@PathVariable("connection_id") String connection_id){
 		List<BabyDTO> babyList = service.babyList(connection_id);
 		return new ResponseEntity<>(babyList, HttpStatus.OK);
 	}
 	
-	// 아기정보 수정
+	// 아기 정보 수정
 	@PutMapping("/updateBabyInfo")
 	public ResponseEntity<String> update(@RequestBody RequestDTO rdto){
 		BabyDTO bdto = rdto.getBdto();
