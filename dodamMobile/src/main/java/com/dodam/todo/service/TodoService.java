@@ -28,4 +28,9 @@ public class TodoService {
 	public int updateTodo(TodoDTO dto) {
 		return dao.updateTodo(dto);
 	}
+	
+	// Todo 삭제
+	public int deleteTodo(int todoid) {
+		return dao.deleteTodo(todoid);
+	}
 }

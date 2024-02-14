@@ -17,4 +17,7 @@ public interface TodoDAO {
 	
 	// Todo 수정
 	public int updateTodo(TodoDTO dto);
+	
+	// Todo 삭제
+	public int deleteTodo(int todoid);
 }

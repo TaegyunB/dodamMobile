@@ -14,7 +14,12 @@
 	
 	<!-- Todo 수정 -->
 	<update id="updateTodo" parameterType="com.dodam.todo.dto.TodoDTO">
-		update todo set title=#{title}, content=#{content}, closingDate=#{closingDate} where connection_id=#{connection_id} and todoid=#{todoid}
+		update todo set title=#{title}, content=#{content}, closingDate=#{closingDate} where todoid=#{todoid}
 	</update>
+	
+	<!-- Todo 삭제 -->
+	<delete id="deleteTodo" parameterType="int">
+		delete from todo where todoid=#{todoid}
+	</delete>
 
 </mapper>
