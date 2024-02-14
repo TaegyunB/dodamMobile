@@ -1,0 +1,31 @@
+package com.dodam.baby.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dodam.baby.dao.BabyDAO;
+import com.dodam.baby.dto.BabyDTO;
+
+@Service
+public class BabyService {
+
+	@Autowired
+	BabyDAO dao;
+	
+	// 아기 정보 입력
+	public int insertBabyInfo(BabyDTO dto) {
+		return dao.insertBabyInfo(dto);
+	}
+	
+	// 아기 리스트 가져오기
+	public List<BabyDTO> babyList(String connection_id){
+		return dao.babyList(connection_id);
+	}
+	
+	// 아기 정보 수정
+	public int updateBabyInfo(BabyDTO dto) {
+		return dao.updateBabyInfo(dto);
+	}
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dodam.baby.dao.BabyDAO">
+
+<insert id="insertBabyInfo" parameterType="com.dodam.baby.dto.BabyDTO">
+	insert into babyInfo values (#{connection_id}, #{babyid}, #{babyName}, #{babyGender}, #{dueDate})
+</insert>
+
+<select id="babyList" parameterType="String">
+	select * from babyInfo where connection_id = #{connection_id}
+</select>
+
+<update id="updateBabyInfo" parameterType="com.dodam.baby.dto.BabyDTO">
+	update babyInfo set babyName=#{babyName}, babyGender=#{babyGender}, dueDate=#{dueDate} where connection_id=#{connection_id} and babyid=#{babyid}
+</update>
+
+</mapper>

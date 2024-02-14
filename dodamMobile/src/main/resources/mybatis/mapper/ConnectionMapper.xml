@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dodam.connection.dao.ConnectionDAO">
+
+<insert id="connectUser" parameterType="com.dodam.connection.dto.ConnectionDTO">
+	insert into connection values (#{user1_id}, #{user2_id}, #{connection_id})
+</insert>
+
+<select id="isUserExist" parameterType="String">
+	select userid from user where userid=#{userid}
+</select> 
+
+<select id="hasConnection">
+	select connection_id from user group by connection_id having count(userid) > 1
+</select>
+
+</mapper>
