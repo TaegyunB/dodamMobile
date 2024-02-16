@@ -7,6 +7,12 @@
 		insert into diary (userid, diaryid, title, content) values (#{userid}, #{diaryid}, #{title}, #{content})
 	</insert>
 	
+	<!-- 다이어리 1개 -->
+	<select id="selectOneDiary" parameterType="int">
+		select * from diary where diaryid=#{diaryid}
+	</select>
+	
+	
 	<!-- 다이어리 리스트 -->
 	<select id="diaryListByUserid" parameterType="String">
 		select * from diary where userid=#{userid}

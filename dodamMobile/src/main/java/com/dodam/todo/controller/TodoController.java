@@ -36,6 +36,13 @@ public class TodoController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	// Todo 1개
+	@GetMapping("/selectOneTodo/{todoid}")
+	public ResponseEntity<List<TodoDTO>> selectOneTodo(@PathVariable("todoid") int todoid){
+		List<TodoDTO> selectOneTodo = service.selectOneTodo(todoid);
+		return new ResponseEntity<>(selectOneTodo, HttpStatus.OK);
+	}
+	
 	// Todo 리스트 가져오기
 	@GetMapping("/todoList/{connection_id}")
 	public ResponseEntity<List<TodoDTO>> todoList(@PathVariable("connection_id") String connection_id){

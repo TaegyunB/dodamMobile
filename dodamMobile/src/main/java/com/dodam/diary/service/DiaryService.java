@@ -19,6 +19,11 @@ public class DiaryService {
     	return dao.insertDiary(dto);
     }
     
+    // 다이어리 1개
+    public List<DiaryDTO> selectOneDiary(int diaryid) {
+    	return dao.selectOneDiary(diaryid);
+    }
+    
     // 다이어리 리스트
     public List<DiaryDTO> diaryListByUserid(String userid){
     	return dao.diaryListByUserid(userid);

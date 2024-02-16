@@ -12,6 +12,9 @@ public interface DiaryDAO {
 	// 다이어리 작성
 	public int insertDiary(DiaryDTO dto);
 	
+	// 다이어리 1개
+	public List<DiaryDTO> selectOneDiary(int diaryid);
+	
 	// 다이어리 리스트
 	public List<DiaryDTO> diaryListByUserid(String userid);
 	

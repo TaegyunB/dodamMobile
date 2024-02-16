@@ -12,6 +12,9 @@ public interface TodoDAO {
 	// Todo 추가
 	public int insertTodo(TodoDTO dto);
 	
+	// Todo 1개
+	public List<TodoDTO> selectOneTodo(int todoid);
+	
 	// Todo 리스트
 	public List<TodoDTO> todoList(String connection_id);
 	

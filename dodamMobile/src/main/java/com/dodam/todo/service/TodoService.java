@@ -19,6 +19,11 @@ public class TodoService {
 		return dao.insertTodo(dto);
 	}
 	
+	// Todo 1개
+	public List<TodoDTO> selectOneTodo(int todoid){
+		return dao.selectOneTodo(todoid);
+	}
+	
 	// Todo 리스트
 	public List<TodoDTO> todoList(String connection_id){
 		return dao.todoList(connection_id);

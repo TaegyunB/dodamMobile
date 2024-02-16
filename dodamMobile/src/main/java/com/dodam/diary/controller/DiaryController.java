@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dodam.diary.dto.DiaryDTO;
@@ -34,6 +35,14 @@ public class DiaryController {
     	ddto.setUserid(userid);
     	service.insertDiary(ddto);
     	return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
+    // 다이어리 1개
+    @GetMapping("/selectDiary/{diaryid}")
+    public ResponseEntity<List<DiaryDTO>> selectOneDiary(@PathVariable("diaryid") int diaryid){
+
+    	List<DiaryDTO> selectOneDiary = service.selectOneDiary(diaryid);
+    	return new ResponseEntity<>(selectOneDiary, HttpStatus.OK);
     }
     
     // 다이어리 리스트
