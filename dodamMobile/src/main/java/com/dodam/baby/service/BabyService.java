@@ -19,12 +19,12 @@ public class BabyService {
 		return dao.insertBabyInfo(dto);
 	}
 	
-	// 아기 1명
+	// 아기 리스트
 	public List<BabyDTO> selectOneBaby(BabyDTO dto){
 		return dao.selectOneBaby(dto);
 	}
 	
-	// 아기 리스트
+	// 아기 전체 리스트
 	public List<BabyDTO> babyList(String connection_id){
 		return dao.babyList(connection_id);
 	}
@@ -35,8 +35,8 @@ public class BabyService {
 	}
 	
 	// 아기 삭제
-	public int deleteBaby(int babyid) {
-		return dao.deleteBaby(babyid);
+	public int deleteBaby(BabyDTO dto) {
+		return dao.deleteBaby(dto);
 	}
 	
 }

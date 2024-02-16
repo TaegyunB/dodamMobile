@@ -36,14 +36,18 @@ public class TodoController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	// Todo 1개
-	@GetMapping("/selectOneTodo/{todoid}")
-	public ResponseEntity<List<TodoDTO>> selectOneTodo(@PathVariable("todoid") int todoid){
-		List<TodoDTO> selectOneTodo = service.selectOneTodo(todoid);
+	// Todo 리스트
+	@GetMapping("/selectOneTodo/{connection_id}/{todoid}")
+	public ResponseEntity<List<TodoDTO>> selectOneTodo(@PathVariable("todoid") int todoid, @PathVariable("connection_id") String connection_id){
+		TodoDTO tdto = new TodoDTO();
+		tdto.setConnection_id(connection_id);
+		tdto.setTodoid(todoid);
+		
+		List<TodoDTO> selectOneTodo = service.selectOneTodo(tdto);
 		return new ResponseEntity<>(selectOneTodo, HttpStatus.OK);
 	}
 	
-	// Todo 리스트 가져오기
+	// Todo 전체 리스트
 	@GetMapping("/todoList/{connection_id}")
 	public ResponseEntity<List<TodoDTO>> todoList(@PathVariable("connection_id") String connection_id){
 		List<TodoDTO> todoList = service.todoList(connection_id);
@@ -51,20 +55,24 @@ public class TodoController {
 	}
 	
 	// Todo 수정
-	@PutMapping("/updateTodo")
-	public ResponseEntity<String> updateTodo(@RequestBody RequestDTO rdto){
+	@PutMapping("/updateTodo/{connection_id}/{todoid}")
+	public ResponseEntity<String> updateTodo(@RequestBody RequestDTO rdto, @PathVariable("connection_id") String connection_id, @PathVariable("todoid") int todoid){
 		TodoDTO tdto = rdto.getTdto();
-		String connection_id = rdto.getLdto().getConnection_id();
-		
 		tdto.setConnection_id(connection_id);
+		tdto.setTodoid(todoid);
+		
 		service.updateTodo(tdto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	// Todo 삭제
-	@DeleteMapping("/deleteTodo/{todoid}")
-	public ResponseEntity<String> deleteTodo(@PathVariable("todoid") int todoid){
-		service.deleteTodo(todoid);
+	@DeleteMapping("/deleteTodo/{connection_id}/{todoid}")
+	public ResponseEntity<String> deleteTodo(@PathVariable("connection_id") String connection_id, @PathVariable("todoid") int todoid){
+		TodoDTO tdto = new TodoDTO();
+		tdto.setConnection_id(connection_id);
+		tdto.setTodoid(todoid);
+		
+		service.deleteTodo(tdto);
 		return new ResponseEntity<>(HttpStatus.OK);
 		
 		

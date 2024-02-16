@@ -20,8 +20,8 @@ public class DiaryService {
     }
     
     // 다이어리 1개
-    public List<DiaryDTO> selectOneDiary(int diaryid) {
-    	return dao.selectOneDiary(diaryid);
+    public List<DiaryDTO> selectOneDiary(DiaryDTO dto) {
+    	return dao.selectOneDiary(dto);
     }
     
     // 다이어리 리스트
@@ -35,8 +35,8 @@ public class DiaryService {
     }
     
     // 다이어리 삭제
-    public int deleteDiary(int diaryid) {
-    	return dao.deleteDiary(diaryid);
+    public int deleteDiary(DiaryDTO dto) {
+    	return dao.deleteDiary(dto);
     }
     
     

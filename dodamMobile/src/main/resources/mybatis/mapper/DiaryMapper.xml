@@ -7,25 +7,25 @@
 		insert into diary (userid, diaryid, title, content) values (#{userid}, #{diaryid}, #{title}, #{content})
 	</insert>
 	
-	<!-- 다이어리 1개 -->
-	<select id="selectOneDiary" parameterType="int">
-		select * from diary where diaryid=#{diaryid}
+	<!-- 다이어리 리스트 -->
+	<select id="selectOneDiary" parameterType="com.dodam.diary.dto.DiaryDTO">
+		select * from diary where userid=#{userid} and diaryid=#{diaryid}
 	</select>
 	
 	
-	<!-- 다이어리 리스트 -->
+	<!-- 다이어리 전체 리스트 -->
 	<select id="diaryListByUserid" parameterType="String">
 		select * from diary where userid=#{userid}
 	</select>
 	
 	<!-- 다이어리 수정 -->
 	<update id="updateDiary" parameterType="com.dodam.diary.dto.DiaryDTO">
-		update diary set title=#{title}, content=#{content} where diaryid=#{diaryid}
+		update diary set title=#{title}, content=#{content} where userid=#{userid} and diaryid=#{diaryid}
 	</update>
 	
 	<!-- 다이어리 삭제 -->
-	<delete id="deleteDiary" parameterType="int">
-		delete from diary where diaryid=#{diaryid}
+	<delete id="deleteDiary" parameterType="com.dodam.diary.dto.DiaryDTO">
+		delete from diary where userid=#{userid} and diaryid=#{diaryid}
 	</delete>
 
 </mapper>

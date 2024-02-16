@@ -19,12 +19,12 @@ public class TodoService {
 		return dao.insertTodo(dto);
 	}
 	
-	// Todo 1개
-	public List<TodoDTO> selectOneTodo(int todoid){
-		return dao.selectOneTodo(todoid);
+	// Todo 리스트
+	public List<TodoDTO> selectOneTodo(TodoDTO dto){
+		return dao.selectOneTodo(dto);
 	}
 	
-	// Todo 리스트
+	// Todo 전체 리스트
 	public List<TodoDTO> todoList(String connection_id){
 		return dao.todoList(connection_id);
 	}
@@ -35,7 +35,7 @@ public class TodoService {
 	}
 	
 	// Todo 삭제
-	public int deleteTodo(int todoid) {
-		return dao.deleteTodo(todoid);
+	public int deleteTodo(TodoDTO dto) {
+		return dao.deleteTodo(dto);
 	}
 }

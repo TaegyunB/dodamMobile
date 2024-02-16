@@ -7,24 +7,24 @@
 		insert into todo values (#{connection_id}, #{todoid}, #{title}, #{content}, #{closingDate})
 	</insert>
 	
-	<!-- Todo 1개 -->
+	<!-- Todo 리스트 -->
 	<select id="selectOneTodo" parameterType="com.dodam.todo.dto.TodoDTO">
 		select * from todo where todoid=#{todoid} and connection_id=#{connection_id}
 	</select>
 	
-	<!-- Todo 리스트 -->
+	<!-- Todo 전체 리스트 -->
 	<select id="todoList" parameterType="String">
 		select * from todo where connection_id=#{connection_id}
 	</select>
 	
 	<!-- Todo 수정 -->
 	<update id="updateTodo" parameterType="com.dodam.todo.dto.TodoDTO">
-		update todo set title=#{title}, content=#{content}, closingDate=#{closingDate} where todoid=#{todoid}
+		update todo set title=#{title}, content=#{content}, closingDate=#{closingDate} where todoid=#{todoid} and connection_id=#{connection_id}
 	</update>
 	
 	<!-- Todo 삭제 -->
-	<delete id="deleteTodo" parameterType="int">
-		delete from todo where todoid=#{todoid}
+	<delete id="deleteTodo" parameterType="com.dodam.todo.dto.TodoDTO">
+		delete from todo where todoid=#{todoid} and connection_id=#{connection_id}
 	</delete>
 
 </mapper>

@@ -13,17 +13,17 @@ public interface BabyDAO {
 	// 아기 추가
 	public int insertBabyInfo(BabyDTO dto);
 	
-	// 아기 1명
+	// 아기 리스트
 	public List<BabyDTO> selectOneBaby(BabyDTO dto);
 	
-	// 아기 리스트
+	// 아기 전체 리스트
 	public List<BabyDTO> babyList(String connection_id);
 	
 	// 아기 정보 수정
 	public int updateBabyInfo(BabyDTO dto);
 	
 	// 아기 삭제
-	public int deleteBaby(int babyid);
+	public int deleteBaby(BabyDTO dto);
 	
 	
 }

@@ -7,12 +7,12 @@
 		insert into babyInfo values (#{connection_id}, #{babyid}, #{babyName}, #{babyGender}, #{dueDate})
 	</insert>
 	
-	<!-- 아기 1명 -->
+	<!-- 아기 리스트 -->
 	<select id="selectOneBaby" parameterType="int">
 		select * from babyInfo where babyid=#{babyid}
 	</select>
 	
-	<!-- 아기 리스트 -->
+	<!-- 아기 전체 리스트 -->
 	<select id="babyList" parameterType="String">
 		select * from babyInfo where connection_id = #{connection_id}
 	</select>
@@ -23,7 +23,7 @@
 	</update>
 
 	<!-- 아기 삭제 -->
-	<delete id="deleteBaby" parameterType="int">
+	<delete id="deleteBaby" parameterType="com.dodam.baby.dto.BabyDTO">
 		delete from babyInfo where babyid=#{babyid}
 	</delete>
 	

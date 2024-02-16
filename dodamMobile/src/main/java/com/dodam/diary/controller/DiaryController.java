@@ -37,15 +37,18 @@ public class DiaryController {
     	return new ResponseEntity<>(HttpStatus.OK);
     }
     
-    // 다이어리 1개
-    @GetMapping("/selectDiary/{diaryid}")
-    public ResponseEntity<List<DiaryDTO>> selectOneDiary(@PathVariable("diaryid") int diaryid){
-
-    	List<DiaryDTO> selectOneDiary = service.selectOneDiary(diaryid);
+    // 다이어리 리스트
+    @GetMapping("/selectDiary/{userid}/{diaryid}")
+    public ResponseEntity<List<DiaryDTO>> selectOneDiary(@PathVariable("userid") String userid, @PathVariable("diaryid") int diaryid){
+    	DiaryDTO ddto = new DiaryDTO();
+    	ddto.setUserid(userid);
+    	ddto.setDiaryid(diaryid);
+    	
+    	List<DiaryDTO> selectOneDiary = service.selectOneDiary(ddto);
     	return new ResponseEntity<>(selectOneDiary, HttpStatus.OK);
     }
     
-    // 다이어리 리스트
+    // 다이어리 전체 리스트
     @GetMapping("/diaryList/{userid}")
     public ResponseEntity<List<DiaryDTO>> todoListByUserid(@PathVariable("userid") String userid){
     	List<DiaryDTO> diaryListByUserid = service.diaryListByUserid(userid);
@@ -53,20 +56,24 @@ public class DiaryController {
     }
     
     // 다이어리 수정
-    @PutMapping("/updateDiary")
-    public ResponseEntity<String> updateDiary(@RequestBody RequestDTO rdto){
+    @PutMapping("/updateDiary/{userid}/{diaryid}")
+    public ResponseEntity<String> updateDiary(@RequestBody RequestDTO rdto, @PathVariable("userid") String userid, @PathVariable("diaryid") int diaryid){
     	DiaryDTO ddto = rdto.getDdto();
-    	String userid = rdto.getLdto().getUserid();
-    	
     	ddto.setUserid(userid);
+    	ddto.setDiaryid(diaryid);
+    	
     	service.updateDiary(ddto);
     	return new ResponseEntity<>(HttpStatus.OK);
     }
     
     // 다이어리 삭제
-    @DeleteMapping("/deleteDiary/{diaryid}")
-    public ResponseEntity<String> deleteDiary(@PathVariable("diaryid") int diaryid){
-    	service.deleteDiary(diaryid);
+    @DeleteMapping("/deleteDiary/{userid}/{diaryid}")
+    public ResponseEntity<String> deleteDiary(@PathVariable("userid") String userid, @PathVariable("diaryid") int diaryid){
+    	DiaryDTO ddto = new DiaryDTO();
+    	ddto.setUserid(userid);
+    	ddto.setDiaryid(diaryid);
+    	
+    	service.deleteDiary(ddto);
     	return new ResponseEntity<>(HttpStatus.OK);
     }
 

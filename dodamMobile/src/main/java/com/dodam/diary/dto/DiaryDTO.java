@@ -8,7 +8,7 @@ import lombok.Data;
 public class DiaryDTO {
 
     private String userid;
-    private String diaryid;
+    private int diaryid;
     private String title;
     private String content;
     private Date writtenDate;
