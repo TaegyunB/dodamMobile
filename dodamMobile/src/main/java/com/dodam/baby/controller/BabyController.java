@@ -37,9 +37,13 @@ public class BabyController {
 	}
 	
 	// 아기 1명
-	@GetMapping("/selectOneBaby/{babyid}")
-	public ResponseEntity<List<BabyDTO>> selectOneBaby(@PathVariable("babyid") int babyid){
-		List<BabyDTO> selectOneBaby = service.selectOneBaby(babyid);
+	@GetMapping("/selectOneBaby/{connection_id}/{babyid}")
+	public ResponseEntity<List<BabyDTO>> selectOneBaby(@PathVariable("babyid") int babyid, @PathVariable("connection_id") String connection_id){
+		BabyDTO bdto = new BabyDTO();
+		bdto.setBabyid(babyid);
+		bdto.setConnection_id(connection_id);
+		
+		List<BabyDTO> selectOneBaby = service.selectOneBaby(bdto);
 		return new ResponseEntity<>(selectOneBaby, HttpStatus.OK);
 	}
 	

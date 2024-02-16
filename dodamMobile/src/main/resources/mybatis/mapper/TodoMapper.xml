@@ -8,8 +8,8 @@
 	</insert>
 	
 	<!-- Todo 1개 -->
-	<select id="selectOneTodo" parameterType="int">
-		select * from todo where todoid=#{todoid}
+	<select id="selectOneTodo" parameterType="com.dodam.todo.dto.TodoDTO">
+		select * from todo where todoid=#{todoid} and connection_id=#{connection_id}
 	</select>
 	
 	<!-- Todo 리스트 -->

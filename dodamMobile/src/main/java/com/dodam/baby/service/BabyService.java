@@ -20,8 +20,8 @@ public class BabyService {
 	}
 	
 	// 아기 1명
-	public List<BabyDTO> selectOneBaby(int babyid){
-		return dao.selectOneBaby(babyid);
+	public List<BabyDTO> selectOneBaby(BabyDTO dto){
+		return dao.selectOneBaby(dto);
 	}
 	
 	// 아기 리스트

@@ -14,7 +14,7 @@ public interface BabyDAO {
 	public int insertBabyInfo(BabyDTO dto);
 	
 	// 아기 1명
-	public List<BabyDTO> selectOneBaby(int babyid);
+	public List<BabyDTO> selectOneBaby(BabyDTO dto);
 	
 	// 아기 리스트
 	public List<BabyDTO> babyList(String connection_id);
