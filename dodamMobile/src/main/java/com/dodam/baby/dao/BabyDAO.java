@@ -18,4 +18,9 @@ public interface BabyDAO {
 	
 	// 아기 정보 수정
 	public int updateBabyInfo(BabyDTO dto);
+	
+	// 아기 삭제
+	public int deleteBaby(int babyid);
+	
+	
 }

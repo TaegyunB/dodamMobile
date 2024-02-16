@@ -28,4 +28,10 @@ public class BabyService {
 	public int updateBabyInfo(BabyDTO dto) {
 		return dao.updateBabyInfo(dto);
 	}
+	
+	// 아기 삭제
+	public int deleteBaby(int babyid) {
+		return dao.deleteBaby(babyid);
+	}
+	
 }

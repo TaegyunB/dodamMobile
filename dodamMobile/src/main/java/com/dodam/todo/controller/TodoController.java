@@ -19,7 +19,7 @@ import com.dodam.todo.dto.TodoDTO;
 import com.dodam.todo.service.TodoService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/todo")
 public class TodoController {
 
 	@Autowired
@@ -55,7 +55,7 @@ public class TodoController {
 	}
 	
 	// Todo 삭제
-	@DeleteMapping("/deleteTodo/{todoid}") // 작동 x
+	@DeleteMapping("/deleteTodo/{todoid}")
 	public ResponseEntity<String> deleteTodo(@PathVariable("todoid") int todoid){
 		service.deleteTodo(todoid);
 		return new ResponseEntity<>(HttpStatus.OK);

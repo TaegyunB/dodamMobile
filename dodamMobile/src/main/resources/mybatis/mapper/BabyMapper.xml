@@ -2,19 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dodam.baby.dao.BabyDAO">
 
-<!-- 아기 추가 -->
-<insert id="insertBabyInfo" parameterType="com.dodam.baby.dto.BabyDTO">
-	insert into babyInfo values (#{connection_id}, #{babyid}, #{babyName}, #{babyGender}, #{dueDate})
-</insert>
+	<!-- 아기 추가 -->
+	<insert id="insertBabyInfo" parameterType="com.dodam.baby.dto.BabyDTO">
+		insert into babyInfo values (#{connection_id}, #{babyid}, #{babyName}, #{babyGender}, #{dueDate})
+	</insert>
+	
+	<!-- 아기 리스트 -->
+	<select id="babyList" parameterType="String">
+		select * from babyInfo where connection_id = #{connection_id}
+	</select>
+	
+	<!-- 아기 정보 수정 -->
+	<update id="updateBabyInfo" parameterType="com.dodam.baby.dto.BabyDTO">
+		update babyInfo set babyName=#{babyName}, babyGender=#{babyGender}, dueDate=#{dueDate} where babyid=#{babyid}
+	</update>
 
-<!-- 아기 리스트 -->
-<select id="babyList" parameterType="String">
-	select * from babyInfo where connection_id = #{connection_id}
-</select>
-
-<!-- 아기 정보 수정 -->
-<update id="updateBabyInfo" parameterType="com.dodam.baby.dto.BabyDTO">
-	update babyInfo set babyName=#{babyName}, babyGender=#{babyGender}, dueDate=#{dueDate} where connection_id=#{connection_id} and babyid=#{babyid}
-</update>
-
+	<!-- 아기 삭제 -->
+	<delete id="deleteBaby" parameterType="int">
+		delete from babyInfo where babyid=#{babyid}
+	</delete>
+	
 </mapper>
