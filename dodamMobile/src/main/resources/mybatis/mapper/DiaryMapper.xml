@@ -12,7 +12,6 @@
 		select * from diary where userid=#{userid} and diaryid=#{diaryid}
 	</select>
 	
-	
 	<!-- 다이어리 전체 리스트 -->
 	<select id="diaryListByUserid" parameterType="String">
 		select * from diary where userid=#{userid}

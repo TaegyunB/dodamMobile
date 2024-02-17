@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dodam.examinationHistory.dao.ExaminationHistoryDAO">
+
+	<!-- 진찰 내역 추가 -->
+	<insert id="insertEH" parameterType="com.dodam.examinationHistory.dto.ExaminationHistoryDTO">
+		insert into examinationHistory values(#{connection_id}, #{examinationid}, #{examinationDate}, #{pregnacyWeek}, #{weight}, #{bloodPressure}, #{urinalysis}, #{embryocadia}, #{requirement}, #{nextVisitDate})
+	</insert>
+
+
+</mapper>
