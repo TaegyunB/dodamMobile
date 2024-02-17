@@ -28,4 +28,8 @@ public class ConnectionService {
 		List<String> connectionIds = dao.hasConnection();
 		return connectionIds.contains(connection_id);
 	}
+	
+	public int deleteConnection(ConnectionDTO dto) {
+		return dao.deleteConnection(dto);
+	}
 }

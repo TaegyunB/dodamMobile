@@ -21,6 +21,7 @@ public class ConnectionController {
 	@Autowired
 	ConnectionService service;
 	
+	// 유저 연결
 	@PostMapping("/connectionform")
 	public ResponseEntity<?> connectUser(@RequestBody RequestDTO rdto){
 		ConnectionDTO cdto = rdto.getCdto();
@@ -39,5 +40,8 @@ public class ConnectionController {
 		}
 	}
 	
+//	// 연결된 유저 삭제
+//	@DeleteMapping("/deleteConnection/{userid}/{connection_id}")
+//	
 	
 }
