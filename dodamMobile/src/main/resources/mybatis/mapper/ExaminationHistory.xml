@@ -6,6 +6,25 @@
 	<insert id="insertEH" parameterType="com.dodam.examinationHistory.dto.ExaminationHistoryDTO">
 		insert into examinationHistory values(#{connection_id}, #{examinationid}, #{examinationDate}, #{pregnacyWeek}, #{weight}, #{bloodPressure}, #{urinalysis}, #{embryocadia}, #{requirement}, #{nextVisitDate})
 	</insert>
+	
+	<!-- 진찰 내역 리스트 -->
+	<select id="selectOneEH" parameterType="com.dodam.examinationHistory.dto.ExaminationHistoryDTO">
+		select * from examinationHistory where connection_id=#{connection_id} and examinationid=#{examinationid}
+	</select>
+	
+	<!-- 진찰 내역 전체 리스트 -->
+	<select id="selectAllEH" parameterType="String">
+		select * from examinationHistory where connection_id=#{connection_id}
+	</select>
 
+	<!-- 진찰 내역 수정 -->
+	<update id="updateEH" parameterType="com.dodam.examinationHistory.dto.ExaminationHistoryDTO">
+		update examinationHistory set examinationDate=#{examinationDate}, pregnacyWeek=#{pregnacyWeek}, weight=#{weight}, bloodPressure=#{bloodPressure}, urinalysis=#{urinalysis}, embryocadia=#{embryocadia}, requirement=#{requirement}, nextVisitDate=#{nextVisitDate} where connection_id=#{connection_id} and examinationid=#{examinationid}
+	</update>
 
+	<!-- 진찰 내역 삭제 -->
+	<delete id="deleteEH" parameterType="com.dodam.examinationHistory.dto.ExaminationHistoryDTO">
+		delete from examinationHistory where connection_id=#{connection_id} and examinationid=#{examinationid}
+	</delete>
+	
 </mapper>
