@@ -33,14 +33,8 @@ public class LoginService {
 	}
 	
 	// 회원 탈퇴
-	public int deleteUser(String formpw, LoginDTO dto) {
-		String pw = dto.getPassword();
-		if (pw.equals(formpw)) {
-			return dao.deleteUser(dto.getUserid());
-		}
-		else {
-			return 0; // 일치하지 않으면 0을 반환 => 삭제 작업이 실패했음을 의미함
-		}
+	public int deleteUser(String userid) {
+		return dao.deleteUser(userid);
 	}
 		
 	// 회원 정보

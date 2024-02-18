@@ -16,7 +16,7 @@ import com.dodam.login.dto.LoginDTO;
 import com.dodam.login.service.LoginService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class LoginController {
 	
 	@Autowired
@@ -60,21 +60,20 @@ public class LoginController {
 	}
 
 	// 회원정보 수정
-	@PutMapping("/update")
+	@PutMapping("/updateUser")
 	public ResponseEntity<String> updateUser(@RequestBody LoginDTO dto){
 		service.updateUser(dto);
 		return new ResponseEntity<>("User info updated.", HttpStatus.OK);
 	}
 	
 	// 회원 탈퇴
-	@DeleteMapping("/delete/{userid}") // 작동 x
-		public ResponseEntity<String> deleteUser(@PathVariable("userid") String userid, @RequestBody LoginDTO dto){
-		int deleteResult = service.deleteUser(dto.getPassword(), dto);
-		if(deleteResult == 0) {
-			return new ResponseEntity<>("Delete Failed.", HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>("User deletion successful.", HttpStatus.OK);
-		}
+	@DeleteMapping("/deleteUser/{userid}")
+		public ResponseEntity<String> deleteUser(@PathVariable("userid") String userid){
+		LoginDTO ldto = new LoginDTO();
+		ldto.setUserid(userid);
+		
+		service.deleteUser(userid);
+		return new ResponseEntity<>(HttpStatus.OK);
 		
 	}
 	

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.dodam.diary.dto.DiaryDTO;
 import com.dodam.diary.dto.RequestDTO;
@@ -29,6 +30,7 @@ public class DiaryController {
     // 다이어리 작성
     @PostMapping("/insert")
     public ResponseEntity<String> insertDiary(@RequestBody RequestDTO rdto) {
+    	
     	DiaryDTO ddto = rdto.getDdto();
     	String userid = rdto.getLdto().getUserid();
     	

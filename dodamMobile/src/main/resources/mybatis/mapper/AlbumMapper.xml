@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dodam.album.dao.AlbumDAO">
+
+    <!-- 앨범 작성 -->
+    <insert id="postAlbum" parameterType="com.dodam.album.dto.AlbumDTO">
+        insert into album (connection_id, albumid, userid, title, creationDate) values(#{connection_id}, #{albumid}, #{userid}, #{title}, #{creationDate})
+    </insert>
+
+    <!-- 앨범 불러오기 -->
+    <select id="getAlbum" parameterType="com.dodam.album.dto.AlbumDTO">
+        select * from album where albumid=#{albumid} and connection_id=#{connection_id}
+    </select>
+
+    <!-- 전체 앨범 불러오기 -->
+    <select id="getAllAlbum" parameterType="String">
+        select * from album where connection_id=#{connection_id}
+    </select>
+
+    <!-- 앨범 수정 -->
+    <update id="updateAlbum" parameterType="com.dodam.album.dto.AlbumDTO">
+        update album set title=#{title} where albumid=#{albumid} and connection_id=#{connection_id}
+    </update>
+
+    <!-- 앨범 삭제 -->
+    <delete id="deleteAlbum" parameterType="com.dodam.album.dto.AlbumDTO">
+        delete from album where albumid = #{albumid} and connection_id=#{connection_id}
+    </delete>
+</mapper>
+
