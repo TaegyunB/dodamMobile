@@ -1,4 +1,4 @@
-# dodamMobile
+# Dodam Application Explaination
 Dodam is a mobile application of for multicultural families. It helps to record and manage mom's health information. Also, mom and dad can prepare for the baby with an albu where they can store the memories during the pregnancy weeks. Moreover, mom can also share these contents with dad. Lastly, they can check helpful information and benefits for multicultural families provided by their country.
 
 # Featues
