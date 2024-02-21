@@ -144,7 +144,7 @@ MySQL <br />
 MyBatis
 
 # Developer Information
-Hyeongcheol Shin / hcshin00717@gmail.com <br />
-Taegyun Baek / taegyunb99@gmail.com <br />
-Wonjeong Park / josephwjp8@gmail.com <br />
-Minwoo Kim / whitetors@gmail.com
+Hyeongcheol Shin / hcshin00717@gmail.com / ShinHyeongcheol <br />
+Taegyun Baek / taegyunb99@gmail.com / taegyunb <br />
+Wonjeong Park / josephwjp8@gmail.com / ParkWonjeong <br />
+Minwoo Kim / whitetors@gmail.com / whitetor
